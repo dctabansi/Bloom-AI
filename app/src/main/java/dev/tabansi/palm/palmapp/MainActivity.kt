@@ -3,13 +3,16 @@ package dev.tabansi.palm.palmapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import dev.tabansi.palm.palmapp.data.AppData
+import dev.tabansi.palm.palmapp.ui.screens.ChatScreen
+import dev.tabansi.palm.palmapp.ui.screens.MessageList
+import dev.tabansi.palm.palmapp.ui.screens.MessageTextField
 import dev.tabansi.palm.palmapp.ui.theme.PALMTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,25 +25,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    ChatScreen(navigateUp = { /*TODO*/ })
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    PALMTheme {
-        Greeting("Android")
     }
 }
