@@ -1,4 +1,4 @@
-package dev.tabansi.palm.palmapp.viewmodels
+package dev.tabansi.palm.palmapp.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 

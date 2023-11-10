@@ -1,8 +1,8 @@
-package dev.tabansi.palm.palmapp
+package dev.tabansi.palm.palmapp.ui
 
 import androidx.compose.runtime.Composable
 
 @Composable
-fun AppScreen() {
+fun PalmApp() {
 
 }

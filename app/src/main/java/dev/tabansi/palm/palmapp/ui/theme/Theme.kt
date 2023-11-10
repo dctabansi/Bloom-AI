@@ -79,7 +79,6 @@ private val LightColorScheme = lightColorScheme(
     scrim = md_theme_light_scrim
 )
 
-var isSystemDark: Boolean? = null
 /*
 fun PALMTheme(
     darkTheme: Boolean = AppData.Settings?.darkTheme ?: isSystemInDarkTheme(),
@@ -94,7 +93,6 @@ fun PALMTheme(
     dynamicColor: Boolean = false, // Dynamic color is available on Android 12+
     content: @Composable () -> Unit
 ) {
-    isSystemDark = darkTheme
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current

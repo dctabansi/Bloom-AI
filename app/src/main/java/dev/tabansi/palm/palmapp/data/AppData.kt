@@ -1,10 +1,9 @@
 package dev.tabansi.palm.palmapp.data
 
-import dev.tabansi.palm.palmapp.ui.theme.isSystemDark
-
 object AppData {
     object Settings {
-        var darkTheme = isSystemDark
+        var systemDefaultTheme: Boolean = true
+        var darkTheme: Boolean? = null
         var defaultChatSettings: ChatSettings = ChatSettings()
         private val originalSettings = defaultChatSettings
     }

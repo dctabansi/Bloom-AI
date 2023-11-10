@@ -27,6 +27,8 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
@@ -55,7 +57,7 @@ import dev.tabansi.palm.palmapp.R
 import dev.tabansi.palm.palmapp.data.AppData
 import dev.tabansi.palm.palmapp.data.Message
 import dev.tabansi.palm.palmapp.ui.theme.PALMTheme
-import dev.tabansi.palm.palmapp.viewmodels.ChatViewModel
+import dev.tabansi.palm.palmapp.ui.viewmodels.ChatViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -84,7 +86,7 @@ fun ChatScreen(
             )
         }
         MessageTextField(
-            inputBlocked = chatUiState.inputBlocked,
+            inputBlocked = true,//chatUiState.inputBlocked,
             onSendButtonClick = {  },
             modifier = Modifier
                 .align(Alignment.BottomCenter)
@@ -120,6 +122,7 @@ fun ChatTopAppBar(
                 )
             }
         }
+
     )
 }
 
@@ -174,11 +177,11 @@ fun MessageCard(
         Card(
             modifier = modifier.padding(8.dp),
             colors = CardDefaults
-                .cardColors(containerColor = MaterialTheme.colorScheme.background)
+                .cardColors(containerColor = MaterialTheme.colorScheme.onSecondary)
         ) {
             Text(
                 text = text,
-                modifier = Modifier.padding(8.dp),
+                modifier = Modifier.padding(12.dp),
                 textAlign = TextAlign.Right
             )
         }
@@ -186,16 +189,17 @@ fun MessageCard(
         Card(
             modifier = modifier.padding(8.dp),
             colors = CardDefaults
-                .cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer)
+                .cardColors(containerColor = MaterialTheme.colorScheme.onPrimary)
         ) {
             Text(
                 text = text,
-                modifier = Modifier.padding(8.dp)
+                modifier = Modifier.padding(12.dp)
             )
         }
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MessageTextField(
     inputBlocked: Boolean,
@@ -205,7 +209,7 @@ fun MessageTextField(
     var userInput by rememberSaveable {
         mutableStateOf("")
     }
-    OutlinedTextField(
+    TextField(
         value = userInput,
         onValueChange = { userInput = it },
         modifier = modifier
@@ -213,13 +217,19 @@ fun MessageTextField(
             .padding(top = 8.dp, bottom = 0.dp)
             .imePadding(),
         shape = RoundedCornerShape(16.dp),
-        maxLines = 4,
+        maxLines = 8,
         trailingIcon = {
             if (!inputBlocked)
                 SendInputIcon(onSendButtonClick = onSendButtonClick)
             else
                 StopInputButton()
-        }
+        },
+        colors = TextFieldDefaults.textFieldColors(
+            focusedIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent,
+            disabledIndicatorColor = Color.Transparent,
+            errorIndicatorColor = Color.Transparent
+        )
     )
 }
 

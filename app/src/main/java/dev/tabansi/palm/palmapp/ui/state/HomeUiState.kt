@@ -1,4 +1,4 @@
-package dev.tabansi.palm.palmapp.state
+package dev.tabansi.palm.palmapp.ui.state
 
 import dev.tabansi.palm.palmapp.data.Chat
 

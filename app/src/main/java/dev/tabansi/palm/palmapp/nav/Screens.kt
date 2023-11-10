@@ -8,6 +8,7 @@ sealed class Screens(val route: String) {
     companion object {
         fun fromRoute(route: String?): Screens {
             return when (route) {
+                Home.route -> Home
                 Chat.route -> Chat
                 Settings.route -> Settings
                 else -> Home
