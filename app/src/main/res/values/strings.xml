@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">PALM0</string>
+    <string name="app_name">Palm</string>
+    <string name="settings">Settings</string>
 </resources>

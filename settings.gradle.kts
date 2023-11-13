@@ -20,5 +20,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "PALM0"
+rootProject.name = "Palm"
 include(":app")
+ 

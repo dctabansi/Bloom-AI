@@ -1,16 +1,29 @@
-package dev.tabansi.palm.palmapp.data
+package dev.tabansi.palm.palmapp.sample
 
-object AppData {
-    object Settings {
-        var systemDefaultTheme: Boolean = true
-        var darkTheme: Boolean? = null
-        var defaultChatSettings: ChatSettings = ChatSettings()
-        private val originalSettings = defaultChatSettings
-    }
+import dev.tabansi.palm.palmapp.model.ChatOld
 
-    val chats = mutableListOf<Chat>()
+object SampleData {
 
-    var sampleChat = Chat().apply {
+    val sampleTitles = listOf(
+        "Short Title",
+        "Adventures in Animal Kingdom: Tales from the wild side",
+        "Culinary Delights: A gastronomic journey around the world",
+        "Musical Musings: Harmonies, melodies, and rhythms of the soul",
+        "Cinematography Chronicles: A voyage through the silver screen",
+        "Literary Escapes: Delving into the depths of fictional worlds",
+        "Decoding the Mysteries of the Universe: A cosmic odyssey",
+        "Exploring the Hidden Depths of the Human Mind: A psychological labyrinth",
+        "Navigating the Labyrinth of Time: A journey through the past, present, and future",
+        "Unraveling the Enigma of Dreams: A voyage into the subconscious realm",
+        "Examining the Fabric of Society: A sociological tapestry",
+        "The Pursuit of Happiness: A quest for fulfillment in a complex world",
+        "The Meaning of Life: Unraveling the grand puzzle of existence",
+        "The Nature of Reality: Decoding the fabric of our universe",
+        "The Ethics of Artificial Intelligence: A balancing act between progress and humanity",
+        "The Future of Humanity: Envisioning a world shaped by technology and change"
+    )
+
+    val sampleChatMessage = ChatOld().apply {
         // 0
         addMessage(text = "Hello")
         // 1
