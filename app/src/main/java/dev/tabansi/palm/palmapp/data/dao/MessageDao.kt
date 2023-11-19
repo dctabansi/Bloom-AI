@@ -1,11 +1,13 @@
 package dev.tabansi.palm.palmapp.data.dao
 
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import dev.tabansi.palm.palmapp.data.entity.Message
 import kotlinx.coroutines.flow.Flow
 
+@Dao
 interface MessageDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(message: Message)
