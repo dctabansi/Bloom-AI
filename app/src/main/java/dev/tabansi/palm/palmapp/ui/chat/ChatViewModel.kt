@@ -15,18 +15,17 @@ import kotlinx.coroutines.flow.stateIn
 *   if so, convert multiple repositories into one
 * */
 class ChatViewModel(
-    private val id: Int,
     private val chatRepository: ChatRepository,
     private val messageRepository: MessageRepository,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
-    private val chatId = checkNotNull(savedStateHandle[ChatDestination.chatIdArg])
-    val uiState: StateFlow<ChatUiState> = chatRepository.selectChat(id)
+    private val chatId: Int = checkNotNull(savedStateHandle[ChatDestination.chatIdArg])
+    val uiState: StateFlow<ChatUiState> = chatRepository.selectChat(chatId)
         .map {
             ChatUiState(
                 title = it.title,
                 titleSet = it.titleSet,
-                messages = messageRepository.selectMessagesByChat(id).map { messageList ->
+                messages = messageRepository.selectMessagesByChat(chatId).map { messageList ->
                     messageList.map { message ->
                         MessageInfo(
                             sender = message.sender,
@@ -38,7 +37,7 @@ class ChatViewModel(
         }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), ChatUiState())
 
     suspend fun updateTitle(title: String) {
-        val chat = chatRepository.selectChat(id)
+        val chat = chatRepository.selectChat(chatId)
         chatRepository.updateChat(
             chat.single().copy(
                 title = title,

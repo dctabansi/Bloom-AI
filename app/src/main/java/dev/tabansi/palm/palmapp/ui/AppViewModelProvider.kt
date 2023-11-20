@@ -1,10 +1,12 @@
 package dev.tabansi.palm.palmapp.ui
 
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import dev.tabansi.palm.palmapp.PalmApplication
+import dev.tabansi.palm.palmapp.ui.chat.ChatViewModel
 import dev.tabansi.palm.palmapp.ui.home.HomeViewModel
 
 object AppViewModelProvider {
@@ -15,14 +17,13 @@ object AppViewModelProvider {
         }
 
         // Initializer for ChatViewModel
-//        initializer { chatId: Int ->
-//            ChatViewModel(
-//                chatId,
-//                palmApplication().container.chatRepository,
-//                palmApplication().container.messageRepository,
-//                this.createSavedStateHandle(),
-//            )
-//        }
+        initializer {
+            ChatViewModel(
+                palmApplication().container.chatRepository,
+                palmApplication().container.messageRepository,
+                this.createSavedStateHandle()
+            )
+        }
     }
 }
 
