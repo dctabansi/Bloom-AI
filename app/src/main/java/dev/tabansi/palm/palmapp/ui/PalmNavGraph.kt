@@ -43,7 +43,7 @@ fun PalmNavHost(
             )
         ) {
             ChatScreen(
-                navigateToChat = { navController.navigate("${ChatDestination.route}/${it}") },
+//                navigateToChat = { navController.navigate("${ChatDestination.route}/${it}") },
                 navigateUp = { navController.navigateUp() }
             )
         }
