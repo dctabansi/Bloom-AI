@@ -1,5 +1,5 @@
 [versions]
-agp = "8.2.0"
+agp = "8.3.0-alpha18"
 gapicGoogleCloudAiGenerativelanguageV1beta3Java = "0.0.0-SNAPSHOT"
 grpcOkhttp = "1.60.0"
 kotlin = "1.9.21"
@@ -8,9 +8,9 @@ junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 lifecycleRuntimeKtx = "2.6.2"
-activityCompose = "1.8.1"
+activityCompose = "1.8.2"
 composeBom = "2023.10.01"
-navigationCompose = "2.7.5"
+navigationCompose = "2.7.6"
 roomRuntime = "2.6.1"
 lifecycleRuntimeCompose = "2.6.2"
 
