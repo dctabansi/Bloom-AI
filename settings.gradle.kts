@@ -22,6 +22,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Palm"
+rootProject.name = "Bloom"
 include(":app")
  

@@ -2,14 +2,15 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("com.google.devtools.ksp") version "1.9.21-1.0.15"
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin") //version "2.0.1"
 }
 
 android {
-    namespace = "dev.tabansi.palm.palmapp"
+    namespace = "dev.tabansi.ai.bloom"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "dev.tabansi.palm.palmapp"
+        applicationId = "dev.tabansi.ai.bloom"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -39,9 +40,10 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.7"
+        kotlinCompilerExtensionVersion = "1.5.6"
     }
     packaging {
         resources {
@@ -63,6 +65,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 
     // Compose Navigation
     implementation(libs.androidx.navigation.compose)
@@ -75,7 +78,9 @@ dependencies {
     // Palm API
     implementation(libs.gapic.google.cloud.ai.generativelanguage.v1beta3.java)
     implementation(libs.grpc.okhttp)
-    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    // Google Generative AI Client
+    implementation(libs.generativeai)
 
     testImplementation(libs.junit)
 
